@@ -1,0 +1,26 @@
+const API = import.meta.env.VITE_API_URL;
+
+export async function createLink(data) {
+  const res = await fetch(`${API}/api/links`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  return res;
+}
+
+export async function getLinks() {
+  const res = await fetch(`${API}/api/links`);
+  return res.json();
+}
+
+export async function getLinkStats(code) {
+  const res = await fetch(`${API}/api/links/${code}`);
+  return res.json();
+}
+
+export async function deleteLink(code) {
+  return fetch(`${API}/api/links/${code}`, {
+    method: "DELETE",
+  });
+}
