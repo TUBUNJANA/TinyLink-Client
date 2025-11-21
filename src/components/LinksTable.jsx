@@ -43,7 +43,7 @@ export default function LinksTable({ links, refresh }) {
 
               <td className="p-2 flex gap-2">
                 <button
-                  onClick={() => navigator.clipboard.writeText(window.location.origin + "/" + l.code)}
+                  onClick={() => navigator.clipboard.writeText(import.meta.env.VITE_API_URL + "/" + l.code)}
                   className="px-2 py-1 bg-green-600 text-white rounded"
                 >
                   Copy
